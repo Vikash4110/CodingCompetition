@@ -11,7 +11,7 @@ import Logout from "./components/Logout";
 import AdminLayout from "./components/layouts/AdminLayout";
 import AdminUsers from "./pages/AdminUsers";
 import AdminUpdate from "./components/AdminUpdate";
-
+import Teacher from "./pages/Teacher";
 import './index.css';
 const App = () => {
 
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/update-profile" element={<UpdateUser />} />
         <Route path="/logout" element={<Logout />} />
-
+        <Route path="/teacher" element={<Teacher />} />
 
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/users" />} />
