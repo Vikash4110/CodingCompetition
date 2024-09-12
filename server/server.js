@@ -3,12 +3,12 @@ const express = require('express');
 const connectDb = require('./utils/db');
 const cors = require('cors');
 const errorMiddleware = require('./middlewares/error-middleware');
-
+const path = require('path');
 const authRoute = require('./router/auth-router');
 // const contactRoute = require('./router/contact-user');
 const adminRoute = require('./router/admin-router');
 const teacherRoute = require('./router/teacher-router');
-
+const feedbackRoute = require('./router/feedback-router');
 const Port = process.env.PORT || 3000;
 const app = express();
 
@@ -17,6 +17,8 @@ const corsOptions = {
   methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
   credentials: true,
 };
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -24,6 +26,7 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/data/teacher', teacherRoute);
+app.use('/api/data/feedback',feedbackRoute)
 // app.use('/api/form', contactRoute);
 
 // Error handling middleware

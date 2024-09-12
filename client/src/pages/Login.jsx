@@ -39,7 +39,7 @@ const Login = ({ setIsLoggedIn }) => {
       if (response.ok) {
         storeTokenInLS(responseData.token);
         toast.success("Login Successfully");
-        navigate("/");
+        navigate("/teacher");
       } else {
         toast.error(responseData.message || "Invalid Credentials");
       }
