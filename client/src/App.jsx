@@ -16,6 +16,7 @@ import AdminEditTeacher from './components/AdminEditTeacher';
 import AdminAddTeacher from './components/AdminAddTeacher';
 import AdminFeedback from './pages/AdminFeedback';
 import Teacher from "./pages/Teacher";
+import ComparisonPerformance from './pages/ComparisonPerformance';
 import './index.css';
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
            <Route path="teacher/add" element={<AdminAddTeacher />} />
           <Route path="teacher/:id/edit" element={<AdminEditTeacher />} /> 
           <Route path="feedback" element={<AdminFeedback />} />
+          <Route path="performance" element={<ComparisonPerformance />} />
           </Route>
         <Route path="*" element={<Error />} /> 
       </Routes>

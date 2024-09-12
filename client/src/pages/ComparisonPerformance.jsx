@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import FeedbackChart from "../components/FeedbackChart";
 import QuestionChart from "../components/QuestionChart";
 
-const AdminFeedback = () => {
+const ComparisonPerformance = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedFeedback, setSelectedFeedback] = useState(null);
@@ -61,59 +61,12 @@ const AdminFeedback = () => {
   };
 
   return (
-    <>
-    <br /><br /><br /><br />
     <div className="relative min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Admin Feedback Panel</h1>
 
-      {/* <FeedbackChart feedbacks={feedbacks} /> */}
+      <FeedbackChart feedbacks={feedbacks} />
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {feedbacks.length === 0 ? (
-          <div className="text-center text-gray-500">No feedback available.</div>
-        ) : (
-          feedbacks.map((feedback) => (
-            <motion.div
-              key={feedback._id}
-              className="relative bg-white shadow-md rounded-lg p-6 mb-6 hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelectedFeedback(feedback)}
-            >
-              <h2 className="text-xl font-semibold text-gray-700 mb-2">
-                Teacher: {feedback.teacherId ? feedback.teacherId.teacher_name : "Unknown"}
-              </h2>
-              <p className="text-gray-500 mb-2">Subject: {feedback.teacherId ? feedback.teacherId.subject_name : "N/A"}</p>
-              <p className="text-gray-500 mb-2">Subject Code: {feedback.teacherId ? feedback.teacherId.subject_code : "N/A"}</p>
-              <div className="mt-4">
-                <div className="text-2xl font-bold text-indigo-600 mb-2">
-                  Average Rating: <span className="text-4xl">{feedback.averageRating}/5</span>
-                </div>
-                <div className="text-lg font-medium text-gray-600">
-                  Total Ratings: <span className="text-xl text-blue-500">{feedback.totalRating}</span>
-                </div>
-              </div>
-              <div className="mt-6 flex gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                  onClick={() => setSelectedFeedback(feedback)}
-                >
-                  View Details
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
-                  onClick={() => setShowAnalysis(true)}
-                >
-                  Analyze
-                </motion.button>
-              </div>
-            </motion.div>
-          ))
-        )}
-      </div>
+    
 
       {/* Modal for displaying detailed feedback */}
       <AnimatePresence>
@@ -211,8 +164,7 @@ const AdminFeedback = () => {
         )}
       </AnimatePresence>
     </div>
-    </>
   );
 };
 
-export default AdminFeedback;
+export default ComparisonPerformance;
