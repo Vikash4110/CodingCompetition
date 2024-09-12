@@ -26,10 +26,14 @@ const HowItWorks = () => {
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto text-center">
         {/* Section Title */}
-        <h2 className="text-4xl font-bold text-gray-800 mb-12">How It <span className="text-[#ed1f26]">Works</span></h2>
+        <h2 className="text-5xl font-bold text-gray-800 mb-12">How It <span className="text-[#127c71] relative">Works<svg className="absolute top-[-15px] right-[0px] w-6 md:w-8 h-auto" viewBox="0 0 3183 3072">
+                        <path fill="#ffc221" d="M2600 224c0,0 0,0 0,0 236,198 259,562 52,809 -254,303 -1849,2089 -2221,1776 -301,-190 917,-1964 1363,-2496 207,-247 570,-287 806,-89z" />
+                        <path fill="#ffc221" d="M3166 2190c0,0 0,0 0,0 64,210 -58,443 -270,516 -260,90 -1848,585 -1948,252 -104,-230 1262,-860 1718,-1018 212,-73 437,39 500,250z" />
+                        <path fill="#ffc221" d="M566 3c0,0 0,0 0,0 -219,-26 -427,134 -462,356 -44,271 -255,1921 90,1962 245,62 628,-1392 704,-1869 36,-221 -114,-424 -332,-449z" />
+                      </svg></span></h2>
 
         {/* Step-by-step layout */}
-        <div className="flex flex-col md:flex-row justify-center items-center">
+        <div className="flex flex-col md:flex-row md:justify-center justify-center  items-center space-y-10 md:space-y-0 md:space-x-20">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center">
               {/* Icon */}
@@ -41,17 +45,7 @@ const HowItWorks = () => {
               {/* Description */}
               <p className="text-gray-600 max-w-xs">{step.description}</p>
 
-              {/* Add arrows between steps, except for the last step */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block my-8">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 15L7 10H17L12 15Z" fill="#323290"/>
-  <path d="M12 18V3" stroke="#323290" stroke-dasharray="4 4" stroke-width="2" stroke-linecap="round"/>
-</svg>
-
-                 
-                </div>
-              )}
+        
             </div>
           ))}
         </div>

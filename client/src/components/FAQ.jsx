@@ -100,7 +100,7 @@ const About = () => {
 const ContentSection = () => (
 
 
-    <div className='relative flex justify-center items-center flex-col text-center sm:text-left' data-aos="zoom-out">
+    <div className='relative flex justify-center items-center flex-col text-center sm:text-left lg:mt-36'  data-aos="zoom-out">
 
        
         <img src={faq} className='mx-auto' />
@@ -121,7 +121,7 @@ const AboutLayout = () => (
 
             </div>
 
-            <div className=" lg:mt-0 lg:ml-8 flex-grow order-1 lg:order-2 w-5/6 m-auto lg:w-full">
+            <div className=" lg:mt-0 lg:ml-8 flex-grow order-1 lg:order-2 md:w-3/6 sm:2/6 w-5/6 m-auto lg:w-full">
                 <ContentSection />
             </div>
         </div>

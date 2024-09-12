@@ -11,7 +11,7 @@ const ComponentName = () => {
             <div className="bg-purple-500 w-5 h-5 rounded-full"></div>
             <div className="bg-blue-500 w-3 h-3 rounded-full"></div>
           </div>
-          <span className="ml-2 text-xl font-semibold text-white">MargDarshi</span>
+          <span className="ml-2 text-xl font-semibold text-white">Rate My Tutor</span>
         </div>
                
 
@@ -126,7 +126,7 @@ const ComponentName = () => {
 
         <hr className="mt-16 mb-10 border-gray-200" />
 
-        <p className="text-sm text-center text-white">© Copyright 2024, All Rights Reserved by MargDarshi</p>
+        <p className="text-sm text-center text-white">© Copyright 2024, All Rights Reserved by RateMyTutor</p>
     </div>
 </section>
 

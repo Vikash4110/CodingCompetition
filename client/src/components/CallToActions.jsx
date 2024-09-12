@@ -9,7 +9,7 @@ function Section4() {
 
   return (
     <div
-      className="h-96 flex items-center justify-center "
+      className="h-80 flex items-center justify-center "
       style={{
         backgroundImage: `url(${backgroundImage}), linear-gradient(to right, #5b429c, #28486e)`,
         backgroundBlendMode: 'overlay',

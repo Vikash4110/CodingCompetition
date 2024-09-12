@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from '../components/Banner'
+
 import Carousel from '../components/Carousel'
 import Hero from '../components/Hero'
 import How from '../components/HowItWorks'
@@ -11,7 +12,8 @@ import Footer from '../components/Footer'
 const HomePage = () => {
   return (
     <>
-
+  
+<br /><br /><br />
     <Banner />
     <Carousel />
     <Hero />
