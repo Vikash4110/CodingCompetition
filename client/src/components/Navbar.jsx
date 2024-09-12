@@ -46,11 +46,12 @@ const Nav = () => {
           {/* Logo on the left */}
           <div className="flex-shrink-0">
             <Link to="/" title="home" className={`text-2xl font-bold rounded text-[#127c71] relative`}>
-            <svg className="absolute top-[-15px] right-[-30px] w-6 md:w-8 h-auto" viewBox="0 0 3183 3072">
-                        <path fill="#ffc221" d="M2600 224c0,0 0,0 0,0 236,198 259,562 52,809 -254,303 -1849,2089 -2221,1776 -301,-190 917,-1964 1363,-2496 207,-247 570,-287 806,-89z" />
-                        <path fill="#ffc221" d="M3166 2190c0,0 0,0 0,0 64,210 -58,443 -270,516 -260,90 -1848,585 -1948,252 -104,-230 1262,-860 1718,-1018 212,-73 437,39 500,250z" />
-                        <path fill="#ffc221" d="M566 3c0,0 0,0 0,0 -219,-26 -427,134 -462,356 -44,271 -255,1921 90,1962 245,62 628,-1392 704,-1869 36,-221 -114,-424 -332,-449z" />
-                      </svg>RATE MY TUTOR
+              <svg className="absolute top-[-15px] right-[-30px] w-6 md:w-8 h-auto" viewBox="0 0 3183 3072">
+                <path fill="#ffc221" d="M2600 224c0,0 0,0 0,0 236,198 259,562 52,809 -254,303 -1849,2089 -2221,1776 -301,-190 917,-1964 1363,-2496 207,-247 570,-287 806,-89z" />
+                <path fill="#ffc221" d="M3166 2190c0,0 0,0 0,0 64,210 -58,443 -270,516 -260,90 -1848,585 -1948,252 -104,-230 1262,-860 1718,-1018 212,-73 437,39 500,250z" />
+                <path fill="#ffc221" d="M566 3c0,0 0,0 0,0 -219,-26 -427,134 -462,356 -44,271 -255,1921 90,1962 245,62 628,-1392 704,-1869 36,-221 -114,-424 -332,-449z" />
+              </svg>
+              RATE MY TUTOR
             </Link>
           </div>
 
@@ -64,14 +65,18 @@ const Nav = () => {
               About
               <span className={`absolute left-0 bottom-0 h-0.5 ${underlineColor} transition-transform scale-x-0 group-hover:scale-x-100 w-full`}></span>
             </Link>
-            <Link to="/feedback" className={`relative inline-block group font-semibold hover:text-[#127c71] hover:underline transition-all duration-500`}>
-              Feedback
-              <span className={`absolute left-0 bottom-0 h-0.5 ${underlineColor} transition-transform scale-x-0 group-hover:scale-x-100 w-full`}></span>
-            </Link>
-            <Link to="/contact" className={`relative inline-block group font-semibold hover:text-[#127c71] hover:underline transition-all duration-500`}>
-              Contact
-              <span className={`absolute left-0 bottom-0 h-0.5 ${underlineColor} transition-transform scale-x-0 group-hover:scale-x-100 w-full`}></span>
-            </Link>
+            {isLoggedIn && (
+              <>
+                <Link to="/teacher" className={`relative inline-block group font-semibold hover:text-[#127c71] hover:underline transition-all duration-500`}>
+                  Feedback
+                  <span className={`absolute left-0 bottom-0 h-0.5 ${underlineColor} transition-transform scale-x-0 group-hover:scale-x-100 w-full`}></span>
+                </Link>
+                <Link to="/contact" className={`relative inline-block group font-semibold hover:text-[#127c71] hover:underline transition-all duration-500`}>
+                  Contact
+                  <span className={`absolute left-0 bottom-0 h-0.5 ${underlineColor} transition-transform scale-x-0 group-hover:scale-x-100 w-full`}></span>
+                </Link>
+              </>
+            )}
           </nav>
 
           {/* Buttons on the right */}
@@ -147,28 +152,28 @@ const Nav = () => {
             <Link to="/about" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
               About
             </Link>
-            <Link to="/feedback" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
-              Feedback
-            </Link>
-            <Link to="/contact" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
-              Contact
-            </Link>
-            {/* Buttons for mobile */}
-            {isLoggedIn ? (
+            {isLoggedIn && (
               <>
-                <Link to="/dashboard" onClick={() => setIsHamburgerOpen(false)} className="py-2 px-4 rounded-full mt-6 font-medium text-white w-28 mx-auto bg-yellow-500 transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/teacher" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
+                  Feedback
+                </Link>
+                <Link to="/contact" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
+                  Contact
+                </Link>
+                <Link to="/dashboard" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
                   Dashboard
                 </Link>
-                <Link to="/logout" onClick={logout} className="rounded-full px-4 py-2 bg-red-500 text-white font-medium transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/logout" onClick={() => { logout(); setIsHamburgerOpen(false); }} className="relative inline-block group">
                   Logout
                 </Link>
               </>
-            ) : (
+            )}
+            {!isLoggedIn && (
               <>
-                <Link to="/login" onClick={() => setIsHamburgerOpen(false)} className="py-2 px-4 rounded-full mt-6 font-medium text-white w-28 mx-auto bg-green-500 transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/login" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
                   Login
                 </Link>
-                <Link to="/register" onClick={() => setIsHamburgerOpen(false)} className="py-2 px-4 rounded-full mt-6 font-medium text-white w-28 mx-auto bg-blue-500 transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/register" onClick={() => setIsHamburgerOpen(false)} className="relative inline-block group">
                   Register
                 </Link>
               </>

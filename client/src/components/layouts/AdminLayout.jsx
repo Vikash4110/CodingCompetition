@@ -42,6 +42,26 @@ const AdminLayout = () => {
               activeTab={activeTab}
               onClick={() => handleTabClick("Users")}
             />
+             <SidebarLink
+              to="/admin/teacher"
+              icon={<FaUser />}
+              label="Teacher"
+              activeTab={activeTab}
+              onClick={() => handleTabClick("Users")}
+            /> <SidebarLink
+              to="/admin/feedback"
+              icon={<FaUser />}
+              label="Feedback"
+              activeTab={activeTab}
+              onClick={() => handleTabClick("Users")}
+            />
+            <SidebarLink
+              to="/admin/performance"
+              icon={<FaUser />}
+              label="Performance"
+              activeTab={activeTab}
+              onClick={() => handleTabClick("Users")}
+            />
             <SidebarLink
               to="/admin/contacts"
               icon={<RiContactsBookFill />}
@@ -49,8 +69,7 @@ const AdminLayout = () => {
               activeTab={activeTab}
               onClick={() => handleTabClick("Contacts")}
             />
-          
-
+    
             <SidebarLink
               to="/"
               icon={<FaHome />}
