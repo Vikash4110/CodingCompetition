@@ -1,6 +1,6 @@
 const User = require('../models/user-model');
 // const Contact = require('../models/contact-model');
-
+const Teacher = require('../models/teacher-model');
 
 // User Controllers
 const getAllUsers = async (req, res, next) => {
@@ -84,6 +84,84 @@ const deleteContactById = async (req, res, next) => {
 
 
 
+// Teacher Controllers
+const getAllTeacher = async (req, res, next) => {
+    try {
+      const teacher = await Teacher.find();
+      if (!teacher.length) return res.status(404).json({ message: 'No teacher found' });
+      res.status(200).json(teacher);
+    } catch (error) {
+      next(error);
+    }
+  };
+  
+  const getTeacherById = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const teacher = await Teacher.findOne({ _id: id });
+      if (!teacher) return res.status(404).json({ message: 'teacher not found' });
+      res.status(200).json(teacher);
+    } catch (error) {
+      next(error);
+    }
+  };
+  const addTeacher = async (req, res, next) => {
+    try {
+      const { teacher_name, father_name, mobile_no, email, department, subject_name, subject_code } = req.body;
+  
+      // Check for missing fields
+      if (!teacher_name || !father_name || !mobile_no || !email || !department || !subject_name || !subject_code) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+  
+      const newTeacher = new Teacher({
+        teacher_name,
+        father_name,
+        mobile_no,
+        email,
+        department,
+        subject_name,
+        subject_code
+      });
+  
+      await newTeacher.save();
+      res.status(201).json({ message: 'Teacher added successfully' });
+    } catch (error) {
+      console.error('Error in addTeacher controller:', error.message);  // Log error message
+      next(error); // Pass error to middleware
+    }
+  };
+  
+  
+  const updateTeacherById = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const updatedTeacherData = req.body;
+  
+      // Find the syllabus first
+      const teacher = await Teacher.findOne({ _id: id });
+      if (!teacher) {
+        return res.status(404).json({ message: 'Teacher not found' });
+      }
+  
+      // Update the syllabus
+      await Teacher.updateOne({ _id: id }, { $set: updatedTeacherData });
+      res.status(200).json({ message: 'Teacher updated successfully' });
+    } catch (error) {
+      next(error);
+    }
+  };
+  const deleteTeacherById = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const result = await Teacher.deleteOne({ _id: id });
+      if (!result.deletedCount) return res.status(404).json({ message: 'Teacher not found' });
+      res.status(200).json({ message: 'Teacher deleted successfully' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -91,4 +169,9 @@ module.exports = {
   deleteUserById,
   getAllContacts,
   deleteContactById,
+  getAllTeacher,
+  getTeacherById,
+  addTeacher,
+  updateTeacherById,
+  deleteTeacherById
 };
