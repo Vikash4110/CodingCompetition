@@ -18,7 +18,7 @@ const Nav = () => {
       if (window.scrollY > 50 || location.pathname !== "/") {
         setNavbarBg("bg-white border-b-2 shadow-md hover:shadow-xl");
         setTextColor("text-black");
-        setPadding("py-2");
+        setPadding("py-4");
         setUnderlineColor("before:bg-black");
         setBtnHoverBg("hover:bg-black");
         setBtnHoverText("hover:text-white");
