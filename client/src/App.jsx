@@ -13,7 +13,8 @@ import AdminUsers from "./pages/AdminUsers";
 import AdminUpdate from "./components/AdminUpdate";
 import AdminTeacher from "./pages/AdminTeacher";
 import AdminEditTeacher from './components/AdminEditTeacher';
-import AdminAddTeacher from './components/AdminAddTeacher'
+import AdminAddTeacher from './components/AdminAddTeacher';
+import AdminFeedback from './pages/AdminFeedback';
 import Teacher from "./pages/Teacher";
 import Contact from "./pages/ContactUs";
 import About from './pages/About'
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="teacher" element={<AdminTeacher />} />
            <Route path="teacher/add" element={<AdminAddTeacher />} />
           <Route path="teacher/:id/edit" element={<AdminEditTeacher />} /> 
+          <Route path="feedback" element={<AdminFeedback />} />
           </Route>
         <Route path="*" element={<Error />} /> 
       </Routes>

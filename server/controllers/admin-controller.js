@@ -1,6 +1,7 @@
 const User = require('../models/user-model');
 // const Contact = require('../models/contact-model');
 const Teacher = require('../models/teacher-model');
+const Feedback = require('../models/feedback-model');
 
 // User Controllers
 const getAllUsers = async (req, res, next) => {
@@ -162,6 +163,28 @@ const getAllTeacher = async (req, res, next) => {
     }
   };
 
+
+  const getAllFeedback = async (req, res, next) => {
+    try {
+      const feedbacks = await Feedback.find().populate('teacherId'); // Populate teacherId field
+      if (!feedbacks.length) return res.status(404).json({ message: 'No feedback found' });
+      res.status(200).json(feedbacks);
+    } catch (error) {
+      next(error);
+    }
+  };
+  
+  const getFeedbackById = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const feedback = await Feedback.findById(id).populate('teacherId'); // Populate teacherId field
+      if (!feedback) return res.status(404).json({ message: 'Feedback not found' });
+      res.status(200).json(feedback);
+    } catch (error) {
+      next(error);
+    }
+  };
+  
 module.exports = {
   getAllUsers,
   getUserById,
@@ -173,5 +196,7 @@ module.exports = {
   getTeacherById,
   addTeacher,
   updateTeacherById,
-  deleteTeacherById
+  deleteTeacherById,
+  getAllFeedback,
+  getFeedbackById
 };

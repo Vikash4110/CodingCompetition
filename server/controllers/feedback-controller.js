@@ -47,3 +47,13 @@ exports.getFeedbackByTeacherId = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Get all feedback
+exports.getAllFeedback = async (req, res) => {
+  try {
+    const feedbacks = await Feedback.find().populate("teacherId");
+    res.status(200).json(feedbacks);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
