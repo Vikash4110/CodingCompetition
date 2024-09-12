@@ -6,9 +6,8 @@ const errorMiddleware = require('./middlewares/error-middleware');
 
 const authRoute = require('./router/auth-router');
 // const contactRoute = require('./router/contact-user');
-// const adminRoute = require('./router/admin-router');
-
-const path = require('path');
+const adminRoute = require('./router/admin-router');
+const teacherRoute = require('./router/teacher-router');
 
 const Port = process.env.PORT || 3000;
 const app = express();
@@ -23,8 +22,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/auth', authRoute);
+app.use('/api/admin', adminRoute);
+app.use('/api/data/teacher', teacherRoute);
 // app.use('/api/form', contactRoute);
-// app.use('/api/admin', adminRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);

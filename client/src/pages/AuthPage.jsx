@@ -11,6 +11,8 @@ const AuthPage = ({ setIsLoggedIn }) => {
   const activeButton = path === "/register" ? "register" : "login";
 
   return (
+    <>
+    <br /><br />
     <div className="flex flex-col min-h-screen bg-gray-100">
       <main className="flex-grow flex items-center justify-center">
         <div className="w-full max-w-md px-6 py-8 bg-white shadow-lg rounded-lg">
@@ -43,6 +45,7 @@ const AuthPage = ({ setIsLoggedIn }) => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

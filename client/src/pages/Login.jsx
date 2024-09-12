@@ -53,6 +53,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   
   return (
+    <>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
@@ -101,6 +102,7 @@ const Login = ({ setIsLoggedIn }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
