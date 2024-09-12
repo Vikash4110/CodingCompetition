@@ -18,5 +18,9 @@ router.route('/teacher/add').post(authMiddleware, adminMiddleware, adminControll
 router.route('/teacher/:id').get(authMiddleware, adminMiddleware, adminController.getTeacherById);
 router.route('/teacher/update/:id').patch(authMiddleware, adminMiddleware, adminController.updateTeacherById);
 
+// Feedback Panel
+router.route('/feedback').get(authMiddleware, adminMiddleware, adminController.getAllFeedback);
+router.route('/feedback/:id').get(authMiddleware, adminMiddleware, adminController.getFeedbackById);
+
 module.exports = router;
 
