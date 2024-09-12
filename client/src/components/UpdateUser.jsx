@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import underline from '../assets/curveUnderline.svg';
 import { FaUser, FaEnvelope, FaPhone, FaMobile, FaBuilding, FaListOl } from 'react-icons/fa';
 
 const UpdateUser = () => {
@@ -72,101 +73,110 @@ const UpdateUser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
-      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Update Profile</h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaUser className="text-indigo-600 text-xl" />
+    <div className="min-h-screen bg-gray-100 py-28">
+      <div className=" mx-auto bg-white shadow-2xl rounded-3xl p-6 lg:w-3/6 w-5/6">
+      <h2 className="text-3xl md:text-5xl font-bold leading-tight flex flex-col items-center space-y-4 mb-20 text-center">
+            <span className="relative inline-block text-primary font-bold bg-transparent">
+              <span className='text-[#127c71]'>Update Profile</span>
+              <img
+                src={underline}
+                className='block mx-auto mt-2 w-40 md:w-60 h-auto rotate-3'
+                alt="underline"
+              />
+            </span>
+          </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex items-center space-x-3 p-3  rounded-3xl ">
+            
             <div className="flex-1">
-              <label htmlFor="username" className="block text-gray-700">Username</label>
+              <label htmlFor="username" className="text-gray-700 flex items-center space-x-2"><FaUser className="text-[#127c71]" /><span>Username</span></label>
               <input
                 type="text"
                 name="username"
                 id="username"
                 value={data.username}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
           </div>
 
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaMobile className="text-indigo-600 text-xl" />
+          <div className="flex items-center space-x-3 p-3  rounded-3xl ">
+           
             <div className="flex-1">
-              <label htmlFor="rollno" className="block text-gray-700">Roll No.</label>
+              <label htmlFor="rollno" className="text-gray-700 flex items-center space-x-2"> <FaMobile className="text-[#127c71] " /><span>Roll No.</span></label>
               <input
                 type="text"
                 name="rollno"
                 id="rollno"
                 value={data.rollno}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
           </div>
 
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaBuilding className="text-indigo-600 text-xl" />
+          <div className="flex items-center space-x-3 p-3  rounded-3xl ">
+            
             <div className="flex-1">
-              <label htmlFor="department" className="block text-gray-700">Department</label>
+              <label htmlFor="department" className="text-gray-700 flex items-center space-x-2"><FaBuilding className="text-[#127c71] " /><span>Department</span></label>
               <input
                 type="text"
                 name="department"
                 id="department"
                 value={data.department}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
           </div>
 
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaListOl className="text-indigo-600 text-xl" />
+          <div className="flex items-center space-x-3 p-3  rounded-3xl ">
+            
             <div className="flex-1">
-              <label htmlFor="semester" className="block text-gray-700">Semester</label>
+              <label htmlFor="semester" className="text-gray-700 flex items-center space-x-2"><FaListOl className="text-[#127c71] " /><span>Semester</span></label>
               <input
                 type="text"
                 name="semester"
                 id="semester"
                 value={data.semester}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
           </div>
 
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaEnvelope className="text-indigo-600 text-xl" />
+          <div className="flex items-center space-x-3 p-3  rounded-3xl">
+            
             <div className="flex-1">
-              <label htmlFor="email" className="block text-gray-700">Email</label>
+              <label htmlFor="email" className=" text-gray-700 flex items-center space-x-2"><FaEnvelope className="text-[#127c71] " /><span>Email</span></label>
               <input
                 type="email"
                 name="email"
                 id="email"
                 value={data.email}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
           </div>
 
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg shadow-sm">
-            <FaPhone className="text-indigo-600 text-xl" />
+          <div className="flex items-center space-x-3 p-3  rounded-3xl ">
+            
             <div className="flex-1">
-              <label htmlFor="phone" className="block text-gray-700">Phone</label>
+              <label htmlFor="phone" className="items-center space-x-2 text-gray-700 flex "><FaPhone className="text-[#127c71] " /><span>Phone</span></label>
               <input
                 type="text"
                 name="phone"
                 id="phone"
                 value={data.phone}
                 onChange={handleInput}
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 w-full p-4 border border-gray-300 rounded-3xl outline-[#127c71]"
                 required
               />
             </div>
@@ -174,7 +184,7 @@ const UpdateUser = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition duration-300"
+            className="w-full bg-[#127c71] text-white py-4 px-4 rounded-3xl hover:bg-[#0f6f5c] transition duration-300"
           >
             Update
           </button>

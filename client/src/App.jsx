@@ -15,6 +15,8 @@ import AdminTeacher from "./pages/AdminTeacher";
 import AdminEditTeacher from './components/AdminEditTeacher';
 import AdminAddTeacher from './components/AdminAddTeacher'
 import Teacher from "./pages/Teacher";
+import Contact from "./pages/ContactUs";
+import About from './pages/About'
 import './index.css';
 const App = () => {
 
@@ -30,6 +32,8 @@ const App = () => {
         <Route path="/update-profile" element={<UpdateUser />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/teacher" element={<Teacher />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/users" />} />
