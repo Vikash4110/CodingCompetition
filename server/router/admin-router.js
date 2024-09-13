@@ -9,8 +9,8 @@ router.route('/user/:id').get(authMiddleware, adminMiddleware, adminController.g
 router.route('/user/update/:id').patch(authMiddleware, adminMiddleware, adminController.updateUserById);
 router.route('/user/delete/:id').delete(authMiddleware, adminMiddleware, adminController.deleteUserById);
 // Contact Panel
-// router.route('/contacts').get(authMiddleware, adminMiddleware, adminController.getAllContacts);
-// router.route('/contacts/delete/:id').delete(authMiddleware, adminMiddleware, adminController.deleteContactById);
+router.route('/contacts').get(authMiddleware, adminMiddleware, adminController.getAllContacts);
+router.route('/contacts/delete/:id').delete(authMiddleware, adminMiddleware, adminController.deleteContactById);
 // Teacher Panel
 router.route('/teacher').get(authMiddleware, adminMiddleware, adminController.getAllTeacher);
 router.route('/teacher/delete/:id').delete(authMiddleware, adminMiddleware, adminController.deleteTeacherById);

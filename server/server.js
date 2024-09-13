@@ -5,7 +5,7 @@ const cors = require('cors');
 const errorMiddleware = require('./middlewares/error-middleware');
 const path = require('path');
 const authRoute = require('./router/auth-router');
-// const contactRoute = require('./router/contact-user');
+const contactRoute = require('./router/contact-router');
 const adminRoute = require('./router/admin-router');
 const teacherRoute = require('./router/teacher-router');
 const feedbackRoute = require('./router/feedback-router');
@@ -27,7 +27,7 @@ app.use('/api/auth', authRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/data/teacher', teacherRoute);
 app.use('/api/data/feedback',feedbackRoute)
-// app.use('/api/form', contactRoute);
+app.use('/api/form', contactRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);

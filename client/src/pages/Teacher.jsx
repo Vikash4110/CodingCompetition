@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ReactStars from "react-stars";
 import toast, { Toaster } from "react-hot-toast";
+import Img from '../assets/profile2.jpg';
+import underline from '../assets/curveUnderline.svg';
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -74,7 +78,7 @@ const Teacher = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-300 min-h-screen">
+    <div className="p-6  py-28">
       <Toaster />
       {loading ? (
         <p className="text-center text-2xl text-purple-700 font-semibold">Loading...</p>
@@ -82,43 +86,99 @@ const Teacher = () => {
         <>
           {!selectedTeacher ? (
             <>
-              <h1 className="text-4xl font-extrabold text-center text-white mb-10">
-                Select the Teacher for Feedback
-              </h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight flex flex-col items-center space-y-4 mb-20   text-center">
+            <span className="relative inline-block text-primary font-bold bg-transparent">
+              <span className='text-[#127c71]'>Select the teacher for feedback</span>
+              <img
+                src={underline}
+                className='block mx-auto mt-2 w-40 md:w-60 h-auto rotate-3'
+                alt="underline"
+              />
+            </span>
+          </h2>
+
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
                 {teachers.map((teacher) => (
-                  <div
-                    key={teacher._id}
-                    className="bg-white p-6 shadow-lg rounded-xl transition-transform transform hover:scale-105 border border-gray-200 hover:shadow-2xl"
-                  >
-                    <h2 className="text-2xl font-bold text-gray-800 mb-3">{teacher.teacher_name}</h2>
-                    <p className="text-lg text-gray-600 mb-1">
-                      <strong>Department:</strong> {teacher.department}
-                    </p>
-                    <p className="text-lg text-gray-600 mb-1">
-                      <strong>Subject Name:</strong> {teacher.subject_name}
-                    </p>
-                    <p className="text-lg text-gray-600 mb-1">
-                      <strong>Subject Code:</strong> {teacher.subject_code}
-                    </p>
-                    <button
-                      onClick={() => setSelectedTeacher(teacher._id)}
-                      className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors"
+                  <div className='flex flex-col relative shadow-2xl border-[#ffc221] border-2 rounded-3xl mt-28'>
+                    <div className='absolute top-[-7rem] z-[10] mx-auto'>
+                      <img
+                        className="aspect-square rounded-full w-[140px] h-[140px] z-[25] border-[#ffc221] border-2"
+                        src={Img}
+                      />
+                      <div className='w-[140px] h-[140px] bg-[#127c71] rounded-full absolute border-2 border-[#ffc221]
+                                   top-[-6px] z-[-10] left-[10px]'></div>
+                    </div>
+                    <div
+                      key={teacher._id}
+
                     >
-                      Give Feedback
-                    </button>
+                    <div className="flex flex-col">
+                      <div className='text-center mt-7'>
+
+
+                      <div className="flex justify-center space-x-4 ">
+
+                      <div className='text-[#127c71] '>
+                          <FaQuoteLeft />
+                        </div>
+                        <h2 className="text-2xl font-bold text-[#127c71] mb-3">{teacher.teacher_name}</h2>
+                        <div className='text-[#127c71]'>
+                          <FaQuoteRight />
+                        </div>
+                        </div>
+
+                        <div>
+                        <p className="text-lg text-gray-600 mb-1">
+                          <strong>Department:</strong> {teacher.department}
+                        </p>
+                        <p className="text-lg text-gray-600 mb-1">
+                          <strong>Subject Name:</strong> {teacher.subject_name}
+                        </p>
+                        <p className="text-lg text-gray-600 mb-1">
+                          <strong>Subject Code:</strong> {teacher.subject_code}
+                        </p>
+                      </div>
+                      </div>
+                     
+
+                      <button
+                        onClick={() => setSelectedTeacher(teacher._id)}
+                        className="mt-4 px-4 py-2 self-end bg-[#127c71] text-white rounded-3xl hover:bg-[#0f6f5c] transition-colors"
+                      >
+                        Give Feedback
+                      </button>
+                    </div>
+                    </div>
                   </div>
                 ))}
               </div>
             </>
           ) : (
             <>
-              <h1 className="text-4xl font-extrabold text-center text-white mb-10">
-                Feedback for {teachers.find((t) => t._id === selectedTeacher)?.teacher_name}
-              </h1>
-              <div className="grid grid-cols-1 gap-8">
+             <div className="lg:w-1/2 md:w-5/6 mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight flex flex-col items-center space-y-4 mb-20   text-center">
+            <span className="relative inline-block text-primary font-bold bg-transparent">
+              <span className='text-[#127c71]'> Feedback for {teachers.find((t) => t._id === selectedTeacher)?.teacher_name}</span>
+              <img
+                src={underline}
+                className='block mx-auto mt-2 w-40 md:w-60 h-auto rotate-3'
+                alt="underline"
+              />
+            </span>
+          </h2>
+          <div className="border-2 border-[#127c71] p-5 rounded-3xl">
+          <h2 className="text-xl md:text-2xl font-bold leading-tight flex flex-col items-center space-y-4  mt-5 mb-5  text-center">
+            <span className="relative inline-block text-primary font-bold bg-transparent">
+              <span className='text-[#127c71]'>Please Rate ! </span>
+              
+            </span>
+          </h2>
+
+          
+              <div className="grid grid-cols-1 gap-8 ">
                 {questions.map((q, index) => (
-                  <div key={index} className="bg-white p-6 shadow-md rounded-xl">
+                  <div key={index} className="bg-white border border-[#ffc221] border-2 p-6 shadow-2xl rounded-3xl">
                     <p className="text-lg font-semibold mb-2">{q.question}</p>
                     <ReactStars
                       count={5}
@@ -127,22 +187,39 @@ const Teacher = () => {
                       onChange={(newRating) => handleRatingChange(index, newRating)}
                       half={false}
                       color2={"#ffd700"} // Gold color for stars
+                      
                     />
                   </div>
                 ))}
               </div>
+              <h2 className="text-xl md:text-2xl font-bold leading-tight flex flex-col items-center space-y-4  mt-10  text-center">
+            <span className="relative inline-block text-primary font-bold bg-transparent">
+              <span className='text-[#127c71]'>Your Thoughts</span>
+              <img
+                src={underline}
+                className='block mx-auto mt-2 w-16 md:w-32 h-auto rotate-3'
+                alt="underline"
+              />
+            </span>
+          </h2>
               <textarea
-                placeholder="Any comments?"
+           
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                className="block w-full mt-4 border border-gray-300 p-4 rounded-lg"
+                className="block w-full mt-4 border-2 border-[#127c71] p-4 rounded-3xl shadow-2xl outline-[#127c71] "
               />
+              
+
+              
               <button
                 onClick={handleSubmit}
-                className="mt-6 px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="mt-10 px-8 py-3  justify-center w-4/6 mx-auto flex bg-[#127c71] text-white rounded-3xl hover:bg-[#0f6f5c] transition-colors "
               >
                 Submit Feedback
               </button>
+              
+              </div>
+              </div>
             </>
           )}
         </>

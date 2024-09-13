@@ -1,5 +1,5 @@
 const User = require('../models/user-model');
-// const Contact = require('../models/contact-model');
+const Contact = require('../models/contact-model');
 const Teacher = require('../models/teacher-model');
 const Feedback = require('../models/feedback-model');
 

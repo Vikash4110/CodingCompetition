@@ -18,7 +18,7 @@ const Nav = () => {
       if (window.scrollY > 50 || location.pathname !== "/") {
         setNavbarBg("bg-white border-b-2 shadow-md hover:shadow-xl");
         setTextColor("text-black");
-        setPadding("py-2");
+        setPadding("py-4");
         setUnderlineColor("before:bg-black");
         setBtnHoverBg("hover:bg-black");
         setBtnHoverText("hover:text-white");
@@ -92,10 +92,10 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link to="/login" className="rounded-full px-4 py-2 bg-green-500 text-white font-medium transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/login" className=" text-center py-2 px-4 rounded-full  font-medium text-[#127c71] w-28 mx-auto  block  bg-transparent border-2 border-[#127c71]  transition-all duration-500 ease-in-out hover:bg-[#127c71] hover:text-white active:bg-[#127c71] active:text-white">
                   Login
                 </Link>
-                <Link to="/register" className="rounded-full px-4 py-2 bg-blue-500 text-white font-medium transition-transform duration-200 ease-in-out hover:scale-105">
+                <Link to="/register" className="text-center py-2 px-4 rounded-full  font-medium text-[#127c71] w-28 mx-auto  block  bg-transparent border-2 border-[#127c71]  transition-all duration-500 ease-in-out hover:bg-[#127c71] hover:text-white active:bg-[#127c71] active:text-white">
                   Register
                 </Link>
               </>
