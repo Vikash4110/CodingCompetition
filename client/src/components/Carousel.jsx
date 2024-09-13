@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,7 +6,7 @@ import Image1 from "../assets/1-scaled.jpg";
 import Image2 from "../assets/7252.jpg";
 import Image3 from "../assets/IMG_4203-scaled.jpg";
 
-const slides = [
+const slidesData = [
   {
     title: "Your path to success begins with the right knowledge.",
     description: "– Francis Bacon",
@@ -26,6 +26,7 @@ const slides = [
 
 const MainSlider = () => {
   const sliderRef = useRef(null);
+  const [slides, setSlides] = useState([]);
 
   const settings = {
     dots: true,
@@ -37,6 +38,25 @@ const MainSlider = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+
+  useEffect(() => {
+    // Preload images and set state only after all images are loaded
+    const preloadImages = slidesData.map(slide => {
+      const img = new Image();
+      img.src = slide.backgroundImage;
+      return img;
+    });
+
+    Promise.all(preloadImages.map(img => new Promise(resolve => {
+      img.onload = resolve;
+    }))).then(() => {
+      setSlides(slidesData);
+    });
+  }, []);
+
+  if (slides.length === 0) {
+    return <div>Loading...</div>; // Optional loading state
+  }
 
   return (
     <div className="relative h-[50vh] overflow-hidden">
