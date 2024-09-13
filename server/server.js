@@ -23,11 +23,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/api/auth', authRoute);
-app.use('/api/admin', adminRoute);
-app.use('/api/data/teacher', teacherRoute);
-app.use('/api/data/feedback',feedbackRoute)
-app.use('/api/form', contactRoute);
+app.use('api/auth', authRoute);
+app.use('api/admin', adminRoute);
+app.use('api/data/teacher', teacherRoute);
+app.use('api/data/feedback',feedbackRoute)
+app.use('api/form', contactRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);
