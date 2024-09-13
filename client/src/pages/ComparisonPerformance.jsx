@@ -61,8 +61,8 @@ const ComparisonPerformance = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Admin Feedback Panel</h1>
+    <div className="relative min-h-screen bg-gray-100 p-6 py-20">
+      <h1 className="text-3xl font-bold text-center text-[#127c71] mb-6">Admin Performance Analysis Panel</h1>
 
       <FeedbackChart feedbacks={feedbacks} />
 

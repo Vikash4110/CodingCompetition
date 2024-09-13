@@ -84,57 +84,56 @@ const AdminTeacher = () => {
 
   return (
     <>
-    <br />
-    <br />
-    <br />
-    <section className="bg-white shadow-md rounded my-6">
-      <div className="p-6">
-        <h1 className="text-2xl font-semibold mb-4">Admin Teacher Data</h1>
-        <div className="mb-4">
-          <Link to="/admin/teacher/add" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">
-            Add New Teacher
-          </Link>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
-            <thead>
-              <tr>
-                <th className="py-2 px-4 bg-gray-200">Teacher</th>
-                <th className="py-2 px-4 bg-gray-200">Father Name</th>
-                <th className="py-2 px-4 bg-gray-200">Mobile No</th>
-                <th className="py-2 px-4 bg-gray-200">Email</th>
-                <th className="py-2 px-4 bg-gray-200">Department</th>
-                <th className="py-2 px-4 bg-gray-200">Subject Name</th>
-                <th className="py-2 px-4 bg-gray-200">Subject Code</th>
-                <th className="py-2 px-4 bg-gray-200">Edit</th>
-                <th className="py-2 px-4 bg-gray-200">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {syllabus.map((curService) => (
-                <tr key={curService._id} className="text-center">
-                  <td className="py-2 px-4 border">{curService.teacher_name}</td>
-                  <td className="py-2 px-4 border">{curService.father_name}</td>
-                  <td className="py-2 px-4 border">{curService.mobile_no}</td>
-                  <td className="py-2 px-4 border">{curService.email}</td>
-                  <td className="py-2 px-4 border">{curService.department}</td>
-                  <td className="py-2 px-4 border">{curService.subject_name}</td>
-                  <td className="py-2 px-4 border">{curService.subject_code}</td>
-
-                  <td className="py-2 px-4 border">
-                    <Link to={`/admin/teacher/${curService._id}/edit`} className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-700">Edit</Link>
-                  </td>
-                  <td className="py-2 px-4 border">
-                    <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700" onClick={() => deleteSyllabus(curService._id)}>Delete</button>
-                  </td>
+      <br />
+      <br />
+      <br />
+      <section className="bg-white shadow-lg rounded-lg my-8 p-6">
+        <div className="p-6">
+          <h1 className="text-3xl font-extrabold text-center text-[#127c71] mb-6">Admin Teacher Data</h1>
+          <div className="mb-6 text-center">
+            <Link to="/admin/teacher/add" className="bg-transparent text-[#127C71] py-2 px-6 rounded-full border-2 border-[#127c71] shadow-lg hover:bg-[#127c71] hover:text-white transition duration-200 font-semibold">
+              Add New Teacher
+            </Link>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+              <thead>
+                <tr>
+                  {['Teacher', 'Father Name', 'Mobile No', 'Email', 'Department', 'Subject Name', 'Subject Code', 'Edit', 'Delete'].map((header) => (
+                    <th key={header} className="py-3 px-6 bg-[#FFC221] text-[#127C71] font-bold text-sm uppercase tracking-wide">
+                      {header}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {syllabus.map((curService) => (
+                  <tr key={curService._id} className="bg-gray-100 border-t border-gray-200 text-center hover:bg-gray-200 transition duration-200 ease-in-out">
+                    <td className="py-3 px-6 border">{curService.teacher_name}</td>
+                    <td className="py-3 px-6 border">{curService.father_name}</td>
+                    <td className="py-3 px-6 border">{curService.mobile_no}</td>
+                    <td className="py-3 px-6 border">{curService.email}</td>
+                    <td className="py-3 px-6 border">{curService.department}</td>
+                    <td className="py-3 px-6 border">{curService.subject_name}</td>
+                    <td className="py-3 px-6 border">{curService.subject_code}</td>
+                    <td className="py-3 px-6 border">
+                      <Link to={`/admin/teacher/${curService._id}/edit`} className="bg-[#127C71] text-white py-2 px-4 rounded-full hover:bg-opacity-90 transition-all ease-in-out">
+                        Edit
+                      </Link>
+                    </td>
+                    <td className="py-3 px-6 border">
+                      <button className="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition-all ease-in-out" onClick={() => deleteSyllabus(curService._id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </section>
-    </> 
+      </section>
+    </>
   );
 };
 

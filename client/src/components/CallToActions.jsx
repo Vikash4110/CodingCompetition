@@ -20,10 +20,10 @@ function Section4() {
     >
       <div className="text-center px-1 sm:px-0">
         <h1 className="text-4xl font-bold text-white mb-4" data-aos="zoom-out" data-duration="1000">
-          START LEARNING NOW
+          Write Your Feedback Now !
         </h1>
         <h2 className="text-2xl font-medium text-white mb-8" data-aos="zoom-out" data-duration="1000" data-aos-delay="100">
-          Enhance your skills with best available resources
+        Empowering Teachers Through Actionable Feedback!  
         </h2>
         <div className="flex gap-4 justify-center">
           <Link to="/login" className="bg-[#323290] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-aos="zoom-out" data-duration="1000" data-aos-delay="200">

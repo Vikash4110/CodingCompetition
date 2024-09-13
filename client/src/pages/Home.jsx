@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from '../components/Banner'
-
 import Carousel from '../components/Carousel'
 import Hero from '../components/Hero'
 import How from '../components/HowItWorks'
@@ -15,7 +14,7 @@ const HomePage = () => {
   
 <br /><br /><br />
     <Banner />
-    <Carousel />
+    {/* <Carousel /> */}
     <Hero />
     <How />
     <CallToAction />

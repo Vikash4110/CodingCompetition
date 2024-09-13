@@ -39,100 +39,98 @@ const AdminAddTeacher = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
   
-      const data = await response.json();
       toast.success('Teacher added successfully');
       navigate('/admin/teacher');
     } catch (error) {
-      console.error('Error adding teacher:', error.message);  // Log error message
+      console.error('Error adding teacher:', error.message);
       toast.error('Failed to add teacher');
     }
   };
-  
 
   return (
-    <section className="bg-white shadow-md rounded my-6 p-6">
-      <h1 className="text-2xl font-semibold mb-4">Add New Teacher</h1>
-      <form onSubmit={handleSubmit}>
+    <section className="bg-transparent shadow-lg rounded-lg my-8 p-6 border-2 border-[#ffc221] mt-32 w-4/6 mx-auto" >
+      <h1 className="text-3xl font-extrabold text-center text-[#127c71] mb-6">Add New Teacher</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Teacher Name Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Teacher Name</label>
+          <label className="block text-[#127c71] font-semibold">Teacher Name</label>
           <input
             type="text"
             value={teacher_name}
             onChange={(e) => setTeacher(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Father's Name Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Father's Name</label>
+          <label className="block text-[#127c71] font-semibold">Father's Name</label>
           <input
             type="text"
             value={father_name}
             onChange={(e) => setFather(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Mobile No Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Mobile No</label>
+          <label className="block text-[#127c71] font-semibold">Mobile No</label>
           <input
             type="text"
             value={mobile_no}
             onChange={(e) => setMobile(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Email Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Email</label>
+          <label className="block text-[#127c71] font-semibold">Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Department Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Department</label>
+          <label className="block text-[#127c71] font-semibold">Department</label>
           <input
             type="text"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Subject Name Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Subject Name</label>
+          <label className="block text-[#127c71] font-semibold">Subject Name</label>
           <input
             type="text"
             value={subject_name}
             onChange={(e) => setSubjectname(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         {/* Subject Code Input */}
         <div className="mb-4">
-          <label className="block text-gray-700">Subject Code</label>
+          <label className="block text-[#127c71] font-semibold">Subject Code</label>
           <input
             type="text"
             value={subject_code}
             onChange={(e) => setSubjectcode(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#ffc221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <button
           type="submit"
-          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700"
+          className="bg-[#FFC221] text-[#127C71] font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-opacity-90 transition duration-200"
         >
           Add Teacher
         </button>

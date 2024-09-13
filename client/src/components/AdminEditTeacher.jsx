@@ -15,7 +15,7 @@ const AdminEditTeacher = () => {
   const [subject_name, setSubjectname] = useState("");
   const [subject_code, setSubjectcode] = useState("");
   const [link, setLink] = useState("");
-  const [loading, setLoading] = useState(false); // Add a loading state
+  const [loading, setLoading] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const AdminEditTeacher = () => {
           setDepartment(data.department || '');
           setSubjectname(data.subject_name || '');
           setSubjectcode(data.subject_code || '');
-          setLink(data.link || ''); // Ensure to set the link if present
+          setLink(data.link || '');
         }
       } catch (error) {
         console.error('Error fetching service details:', error);
@@ -54,7 +54,7 @@ const AdminEditTeacher = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when submission starts
+    setLoading(true);
     try {
       const response = await fetch(`${backendUrl}/api/admin/teacher/update/${id}`, {
         method: 'PATCH',
@@ -85,88 +85,88 @@ const AdminEditTeacher = () => {
       console.error('Error updating service:', error);
       toast.error('Failed to update service');
     } finally {
-      setLoading(false); // Set loading to false once the submission is complete
+      setLoading(false);
     }
   };
 
   return (
-    <section className="bg-white shadow-md rounded my-6 p-6">
-      <h1 className="text-2xl font-semibold mb-4">Edit Teacher</h1>
-      <form onSubmit={handleSubmit}>
+    <section className="bg-transparent shadow-lg rounded-lg my-8 p-6 mt-32 w-4/6 mx-auto border-2 border-[#ffc221]">
+      <h1 className="text-3xl font-extrabold text-center text-[#127c71] mb-6">Edit Teacher</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="mb-4">
-          <label className="block text-gray-700">Teacher Name</label>
+          <label className="block text-[#127c71] font-semibold">Teacher Name</label>
           <input
             type="text"
             value={teacher_name}
             onChange={(e) => setTeacher(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Father Name</label>
+          <label className="block text-[#127c71] font-semibold">Father's Name</label>
           <input
             type="text"
             value={father_name}
             onChange={(e) => setFather(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Mobile No</label>
+          <label className="block text-[#127c71] font-semibold">Mobile No</label>
           <input
             type="text"
             value={mobile_no}
             onChange={(e) => setMobile(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Email</label>
+          <label className="block text-[#127c71] font-semibold">Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Department</label>
+          <label className="block text-[#127c71] font-semibold">Department</label>
           <input
             type="text"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Subject Name</label>
+          <label className="block text-[#127c71] font-semibold">Subject Name</label>
           <input
             type="text"
             value={subject_name}
             onChange={(e) => setSubjectname(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Subject Code</label>
+          <label className="block text-[#127c71] font-semibold">Subject Code</label>
           <input
             type="text"
             value={subject_code}
             onChange={(e) => setSubjectcode(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-[#FFC221] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC221]"
             required
           />
         </div>
         <button
           type="submit"
-          className={`bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-          disabled={loading} // Disable the button when loading
+          className={`bg-[#FFC221] text-[#127C71] font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-opacity-90 transition duration-200 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+          disabled={loading}
         >
           {loading ? 'Updating...' : 'Update Teacher'}
         </button>

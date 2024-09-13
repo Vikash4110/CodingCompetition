@@ -16,7 +16,7 @@ const AdminLayout = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <AiOutlineLoading3Quarters className="animate-spin text-4xl text-blue-600" />
+        <AiOutlineLoading3Quarters className="animate-spin text-4xl text-[#127c71]" />
       </div>
     );
   }
@@ -29,7 +29,7 @@ const AdminLayout = () => {
     <>
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-blue-800 text-white flex flex-col h-screen fixed">
+        <aside className="w-64 bg-[#127c71] text-white flex flex-col h-screen fixed">
         <br /><br /><br /><br /><br />
           <div className="px-6 py-4  text-center font-bold text-xl">
             Admin Panel
@@ -47,20 +47,20 @@ const AdminLayout = () => {
               icon={<FaUser />}
               label="Teacher"
               activeTab={activeTab}
-              onClick={() => handleTabClick("Users")}
+              onClick={() => handleTabClick("Teacher")}
             /> <SidebarLink
               to="/admin/feedback"
               icon={<FaUser />}
               label="Feedback"
               activeTab={activeTab}
-              onClick={() => handleTabClick("Users")}
+              onClick={() => handleTabClick("Feedback")}
             />
             <SidebarLink
               to="/admin/performance"
               icon={<FaUser />}
               label="Performance"
               activeTab={activeTab}
-              onClick={() => handleTabClick("Users")}
+              onClick={() => handleTabClick("Performance")}
             />
             <SidebarLink
               to="/admin/contacts"
@@ -94,8 +94,8 @@ const SidebarLink = ({ to, icon, label, activeTab, onClick }) => (
     onClick={onClick}
     className={`flex items-center p-2 text-lg rounded transition-all duration-300 ${
       activeTab === label
-        ? "bg-blue-600 text-white"
-        : "hover:bg-blue-700 hover:text-white text-gray-300"
+        ? "bg-[#0f6f5c] text-white"
+        : "hover:[#0f6f5c] hover:text-white text-gray-300"
     }`}
   >
     <span className="mr-2">{icon}</span>
