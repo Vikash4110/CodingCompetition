@@ -18,6 +18,9 @@ const corsOptions = {
   credentials: true,
 };
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.get('/', (req, res) => {
+  res.send('BackEnd of Rate my Tutor Running Succesfully');
+});
 
 
 app.use(cors(corsOptions));

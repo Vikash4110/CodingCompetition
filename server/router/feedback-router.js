@@ -8,4 +8,6 @@ router.post("/submit", feedbackController.createFeedback);
 // Route to get feedback by teacher ID
 router.get("/teacher/:teacherId", feedbackController.getFeedbackByTeacherId);
 
+// Route to get all feedback
+router.get("/all", feedbackController.getAllFeedback);
 module.exports = router;
