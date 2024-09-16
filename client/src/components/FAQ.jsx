@@ -46,7 +46,7 @@ const About = () => {
     const items = [
         {
             title: "How can I log in to the feedback portal?",
-            content: "Students can log in using their roll number along with an OTP sent to their registered contact number or email ID. If the contact number or email ID does not match the records, only the admin can make necessary changes. Admins have their own login credentials."
+            content: "Students can log in using their roll number along with an OTP sent to their registered contact number or email ID. If the contact number or email ID does not match the records, only the admin can make necessary changes. Admins have their own login credentials to login."
         },
         {
             title: "What should I do if I forget my roll number or OTP?",
