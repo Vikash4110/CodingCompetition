@@ -54,7 +54,7 @@ const About = () => {
         },
         {
             title: "How can I submit feedback on a teacher?",
-            content: "After logging in, you will see a list of subjects and their corresponding teachers. Select a subject to view a list of questions about the teacher. Rate each question from 1 to 5 based on your perception. You may also leave optional comments."
+            content: "After logging in, you will see a list of subjects and their corresponding teachers. Select a subject to view a list of questions about the teacher. Rate each question from 1 to 5 based on your perception.You may also leave optional comments if you want."
         },
         {
             title: "Can I submit feedback for multiple teachers or subjects?",
